@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>文章配图</title>
+    <script src = 'get_data.js' type="text/javascript"></script>
+    <style>
+        #menu {
+            width: 200px;
+            float: right;
+        }
+    </style>
+</head>
+
+<style type="text/css">
+    .box{
+        width: 1400px;
+        height: 1700px;
+        border: 1px solid #ccc;
+    }
+
+</style>
+
+<body>
+    <div>
+    <h1 align="center">文 本 配 图</h1>
+
+    <div align="center" style="margin-top:40px;">
+        <form name = 'input', method="post">
+            <div>
+            <textarea align = 'center' placeholder="Textarea" placeholder="输入文字" name="textarea" style="height:200px; width:500px">
+            {% if sentence %}
+                {{sentence}}
+            {% endif %}
+            </textarea></div>
+            <div><input type="submit" value="Submit" onclick="get_data"/></div>
+        </form>
+        <!--<form><input type = 'file' name = "file"/></form>-->
+
+    </div>
+    </div>
+    <div align="center">
+    {% for url in data %}
+    <a href = {{url.imgtext}}>
+        <img src= {{url.imgurl}} padding = '5px' width ='300px' height="200px"/></a>
+    <!--<li>{{data.imgurl}}</li>-->
+    {% endfor %}
+    </div>
+</body>
+</html>
